@@ -1,0 +1,31 @@
+baseURL: "https://example.org/"
+title: "Aparna Agrawal"
+theme: "PaperMod"
+
+params:
+  profileMode:
+    enabled: true
+    title: "Aparna Agrawal"
+    # The summary text should go here to keep it next to the photo
+    subtitle: >
+          Hi, I’m a Software Engineer at Goldman Sachs within the NLP team. I recently graduated from IIIT Hyderabad with a B.Tech and M.S. by Research in Computer Science and Engineering. My research at the Centre for Visual Information Technology (CVIT) focused on the intersection of Computer Vision and Sign Language.
+          My thesis, "Towards Scalable Sign Production: Leveraging Co-Articulated Gloss Dictionary for Fluid Sign Synthesis," explored scalable methods for generating realistic human-centric motion. I have a strong background in Deep Learning, Computer Vision, and Natural Language Processing. I am passionate about applying my skills to solve real-world problems and contribute to the field of AI.
+    imageUrl: "/images/aparna.jpeg"
+    imageWidth: 280 # Larger image to match the reference
+    imageHeight: 280
+    imageTitle: "Aparna Agrawal"
+    buttons:
+      - name: "Resume"
+        url: "/Aparna_CV_2026.pdf"
+      - name: "About"
+        url: "/about"
+
+  socialIcons:
+    - name: email
+      url: "aparna.agrawal20@gmail.com"
+    - name: github
+      url: "https://github.com/AparnaAgrawal02"
+    - name: linkedin
+      url: "https://www.linkedin.com/in/aparna-agrawal-b502a4190/"
+  assets:
+    customCSS: ["css/custom.css"]

@@ -1,0 +1,60 @@
+/* Container for the profile section */
+.profile_inner {
+    display: grid;
+    grid-template-columns: 1fr 300px; /* Text takes left, Image gets fixed width */
+    grid-template-areas: "content image";
+    column-gap: 50px;
+    text-align: left;
+    align-items: start;
+    max-width: 1000px;
+    margin: 40px auto;
+}
+
+/* Positioning the image to the right */
+.profile_image {
+    grid-area: image;
+    justify-self: end;
+}
+
+/* Making the image circular */
+.profile_inner img {
+    border-radius: 50% !important;
+    width: 280px !important;
+    height: 280px !important;
+    object-fit: cover;
+}
+
+/* Aligning title and subtitle to the left */
+.profile_inner h1 {
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+.profile_inner .subtitle {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* Move social icons and buttons to the left */
+.social-icons, .buttons {
+    justify-content: flex-start !important;
+    text-align: left;
+}
+
+/* Mobile Responsive: Stack them back to center on small screens */
+@media (max-width: 768px) {
+    .profile_inner {
+        display: flex;
+        flex-direction: column-reverse;
+        text-align: center;
+        align-items: center;
+    }
+    .profile_image {
+        margin-bottom: 20px;
+        justify-self: center;
+    }
+    .social-icons, .buttons {
+        justify-content: center !important;
+    }
+}
