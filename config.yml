@@ -22,7 +22,7 @@ params:
 
   socialIcons:
     - name: email
-      url: "aparna.agrawal20@gmail.com"
+      url: "mailto:aparna.agrawal20@gmail.com"
     - name: github
       url: "https://github.com/AparnaAgrawal02"
     - name: linkedin
