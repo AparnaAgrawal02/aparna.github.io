@@ -2,9 +2,14 @@ baseURL: "https://aparnaagrawal02.github.io/aparna.github.io/"
 title: "Aparna Agrawal"
 theme: "PaperMod"
 
-# Enable light/dark toggle in the header
 defaultContentLanguage: en
 enableRobotsTXT: true
+
+# Allow raw HTML in markdown (used for publication cards and news items)
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
 
 params:
   defaultTheme: auto
@@ -19,19 +24,23 @@ params:
   profileMode:
     enabled: true
     title: "Aparna Agrawal"
-    # The summary text should go here to keep it next to the photo
     subtitle: >
-          Hi, I’m a Software Engineer at Goldman Sachs within the NLP team. I recently graduated from IIIT Hyderabad with a B.Tech and M.S. by Research in Computer Science and Engineering. My research at the Centre for Visual Information Technology (CVIT) focused on the intersection of Computer Vision and Sign Language.
-          My thesis, "Towards Scalable Sign Production: Leveraging Co-Articulated Gloss Dictionary for Fluid Sign Synthesis," explored scalable methods for generating realistic human-centric motion. I have a strong background in Deep Learning, Computer Vision, and Natural Language Processing. I am passionate about applying my skills to solve real-world problems and contribute to the field of AI.
-    imageUrl: "/images/aparna.jpeg"
-    imageWidth: 280
-    imageHeight: 280
+      Software Engineer on the **NLP team at Goldman Sachs**. Previously,
+      M.S. by Research at **IIIT Hyderabad (CVIT)** working on
+      vision + language for sign-language synthesis. Interested in deep
+      learning for human-centric motion, vision–language models, and
+      applied NLP.
+    imageUrl: "images/aparna.jpeg"
+    imageWidth: 240
+    imageHeight: 240
     imageTitle: "Aparna Agrawal"
     buttons:
-      - name: "Resume"
-        url: "/Aparna_CV_2026.pdf"
-      - name: "About"
-        url: "/about/"
+      - name: "Publications"
+        url: "publications/"
+      - name: "News"
+        url: "news/"
+      - name: "CV"
+        url: "cv.pdf"
 
   socialIcons:
     - name: email
@@ -40,13 +49,25 @@ params:
       url: "https://github.com/AparnaAgrawal02"
     - name: linkedin
       url: "https://www.linkedin.com/in/aparna-agrawal-b502a4190/"
-    # TODO: replace with your actual Google Scholar profile URL, then uncomment:
+    # TODO: paste your Google Scholar profile URL, then uncomment:
     # - name: googlescholar
     #   url: "https://scholar.google.com/citations?user=YOUR_USER_ID"
 
 menu:
   main:
+    - identifier: publications
+      name: Publications
+      url: /publications/
+      weight: 10
+    - identifier: news
+      name: News
+      url: /news/
+      weight: 20
     - identifier: about
       name: About
       url: /about/
-      weight: 10
+      weight: 30
+    - identifier: cv
+      name: CV
+      url: cv.pdf
+      weight: 40
