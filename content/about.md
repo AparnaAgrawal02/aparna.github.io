@@ -7,28 +7,30 @@ ShowReadingTime: false
 hidemeta: true
 ---
 
-I’m a Software Engineer at **Goldman Sachs** on the NLP team, working on applied
-language modeling for finance. Before that, I completed a **B.Tech and M.S. by
-Research in Computer Science and Engineering at IIIT Hyderabad**.
+I’m an Engineering Analyst at **Goldman Sachs** on the NLP team, where I work on
+real-time conversation parsing, analytics and large-data handling on the parsed
+stream, and end-of-day conversation summarization. Before that, I completed a
+**B.Tech and M.S. by Research in Computer Science and Engineering at IIIT
+Hyderabad**.
 
 ## Research
 
-My research at the **Centre for Visual Information Technology (CVIT)** lived
+My research at the **Centre for Visual Information Technology (CVIT)** lives
 at the intersection of computer vision and sign language. My thesis,
-*"Towards Scalable Sign Production: Leveraging Co-Articulated Gloss Dictionary
-for Fluid Sign Synthesis,"* explored scalable methods for generating realistic
-human-centric motion — bridging linguistic structure and continuous body
-motion synthesis.
+*"Towards Natural Sign Language Generation: Scalable and Fluid Sign
+Synthesis for Inclusive Communication,"* explores scalable methods for
+generating realistic human-centric sign motion — bridging linguistic
+structure and continuous body motion synthesis, with the goal of making
+communication more inclusive.
 
 Broader interests:
 
-- Deep learning for **vision + language** problems
-- Human-centric **motion generation and animation**
-- Applied **NLP** in noisy real-world domains
+- 3D human motion generation and animation
+- Deep learning for vision + language problems
 
 ## Background
 
-- **Software Engineer**, Goldman Sachs — NLP team
+- **Engineering Analyst**, Goldman Sachs — NLP team
 - **M.S. by Research, CSE**, IIIT Hyderabad (CVIT)
 - **B.Tech, CSE**, IIIT Hyderabad
 

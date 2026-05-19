@@ -4,12 +4,19 @@ theme: "PaperMod"
 
 defaultContentLanguage: en
 enableRobotsTXT: true
+enableEmoji: true
 
 # Allow raw HTML in markdown (used for publication cards and news items)
 markup:
   goldmark:
     renderer:
       unsafe: true
+  highlight:
+    style: github-dark
+    lineNos: false
+    codeFences: true
+    guessSyntax: true
+    tabWidth: 2
 
 params:
   defaultTheme: auto
@@ -20,27 +27,23 @@ params:
   TocOpen: false
   ShowBreadCrumbs: true
   ShowCodeCopyButtons: true
+  ShowPostNavLinks: true
+  ShowWordCount: true
+  ShowRssButtonInSectionTermList: true
 
   profileMode:
     enabled: true
     title: "Aparna Agrawal"
     subtitle: >
-      Software Engineer on the **NLP team at Goldman Sachs**. Previously,
+      Engineering Analyst on the **NLP team at Goldman Sachs**. Previously,
       M.S. by Research at **IIIT Hyderabad (CVIT)** working on
-      vision + language for sign-language synthesis. Interested in deep
-      learning for human-centric motion, vision–language models, and
-      applied NLP.
+      vision + language for sign-language synthesis. Interested in
+      3D human motion generation and vision–language models.
     imageUrl: "images/aparna.jpeg"
     imageWidth: 240
     imageHeight: 240
     imageTitle: "Aparna Agrawal"
-    buttons:
-      - name: "Publications"
-        url: "publications/"
-      - name: "News"
-        url: "news/"
-      - name: "CV"
-        url: "cv.pdf"
+    # Buttons removed — top nav already exposes Publications / News / Blog / About / CV.
 
   socialIcons:
     - name: email
@@ -49,9 +52,16 @@ params:
       url: "https://github.com/AparnaAgrawal02"
     - name: linkedin
       url: "https://www.linkedin.com/in/aparna-agrawal-b502a4190/"
-    # TODO: paste your Google Scholar profile URL, then uncomment:
-    # - name: googlescholar
-    #   url: "https://scholar.google.com/citations?user=YOUR_USER_ID"
+    - name: twitter
+      url: "https://twitter.com/Aparna10401"
+    - name: googlescholar
+      url: "https://scholar.google.com/citations?user=zoMCXlcAAAAJ&hl=en"
+    - name: rss
+      url: "index.xml"
+
+  assets:
+    disableHLJS: true
+    favicon: "images/favicon.ico"
 
 menu:
   main:
@@ -63,11 +73,15 @@ menu:
       name: News
       url: /news/
       weight: 20
+    - identifier: blog
+      name: Blog
+      url: /blog/
+      weight: 30
     - identifier: about
       name: About
       url: /about/
-      weight: 30
+      weight: 40
     - identifier: cv
       name: CV
       url: cv.pdf
-      weight: 40
+      weight: 50

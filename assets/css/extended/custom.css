@@ -1,48 +1,113 @@
-/* Container for the profile section */
+/* =========================================================
+   Theme tokens — subtle accent + refined surfaces
+   ========================================================= */
+:root {
+    --accent: #4f46e5;            /* indigo-600 */
+    --accent-soft: #eef2ff;
+    --pub-shadow: 0 1px 2px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.04);
+    --pub-shadow-hover: 0 2px 6px rgba(0,0,0,0.06), 0 12px 28px rgba(79,70,229,0.10);
+}
+
+.dark {
+    --accent: #a5b4fc;            /* indigo-300 */
+    --accent-soft: rgba(165,180,252,0.10);
+    --pub-shadow: 0 1px 2px rgba(0,0,0,0.4), 0 4px 12px rgba(0,0,0,0.25);
+    --pub-shadow-hover: 0 2px 6px rgba(0,0,0,0.5), 0 12px 28px rgba(165,180,252,0.12);
+}
+
+/* Slightly tighter site width and nicer body rhythm */
+.main { max-width: 920px; }
+
+body {
+    font-feature-settings: "kern", "liga", "ss01";
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Headings get a touch more weight + tracking */
+h1, h2, h3 { letter-spacing: -0.01em; }
+
+/* Inline links: accent color + animated underline */
+.post-content a,
+.first-entry a,
+.entry-content a {
+    color: var(--accent);
+    text-decoration: none;
+    background-image: linear-gradient(var(--accent), var(--accent));
+    background-size: 0% 1px;
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+    transition: background-size 0.25s ease;
+}
+.post-content a:hover,
+.first-entry a:hover,
+.entry-content a:hover { background-size: 100% 1px; }
+
+/* =========================================================
+   Profile section (homepage)
+   ========================================================= */
 .profile_inner {
     display: grid;
-    grid-template-columns: 1fr 300px; /* Text takes left, Image gets fixed width */
+    grid-template-columns: 1fr 280px;
     grid-template-areas: "content image";
-    column-gap: 50px;
+    column-gap: 56px;
     text-align: left;
-    align-items: start;
+    align-items: center;
     max-width: 1000px;
-    margin: 40px auto;
+    margin: 48px auto;
 }
 
-/* Positioning the image to the right */
-.profile_image {
-    grid-area: image;
-    justify-self: end;
-}
+.profile_image { grid-area: image; justify-self: end; }
 
-/* Making the image circular */
 .profile_inner img {
     border-radius: 50% !important;
     width: 240px !important;
     height: 240px !important;
     object-fit: cover;
+    box-shadow: 0 8px 28px rgba(0,0,0,0.10);
+    border: 4px solid var(--entry);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+.profile_inner img:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 12px 36px rgba(79,70,229,0.18);
 }
 
-/* Aligning title and subtitle to the left */
 .profile_inner h1 {
-    font-size: 40px;
-    margin-bottom: 20px;
+    font-size: 2.4rem;
+    margin-bottom: 16px;
+    letter-spacing: -0.02em;
 }
 
 .profile_inner .subtitle {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    margin-bottom: 20px;
+    font-size: 1.05rem;
+    line-height: 1.65;
+    margin-bottom: 24px;
+    color: var(--content);
 }
 
-/* Move social icons and buttons to the left */
 .social-icons, .buttons {
     justify-content: flex-start !important;
     text-align: left;
 }
 
-/* Mobile Responsive: Stack them back to center on small screens */
+/* Social icon polish — circular hit area, lift on hover */
+.social-icons a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    margin-right: 6px;
+    border-radius: 50%;
+    transition: background 0.2s ease, transform 0.2s ease, color 0.2s ease;
+}
+.social-icons a:hover {
+    background: var(--accent-soft);
+    color: var(--accent);
+    transform: translateY(-2px);
+}
+.social-icons a svg { height: 20px; width: 20px; }
+
 @media (max-width: 768px) {
     .profile_inner {
         display: flex;
@@ -50,71 +115,208 @@
         text-align: center;
         align-items: center;
     }
-    .profile_image {
-        margin-bottom: 20px;
-        justify-self: center;
-    }
-    .social-icons, .buttons {
-        justify-content: center !important;
-    }
+    .profile_image { margin-bottom: 20px; justify-self: center; }
+    .social-icons, .buttons { justify-content: center !important; }
+    .profile_inner h1 { font-size: 2rem; }
 }
 
-/* ---------- Publications ---------- */
-.pub-list { display: flex; flex-direction: column; gap: 1.6rem; margin-top: 1.5rem; }
+/* =========================================================
+   Publications
+   ========================================================= */
+.pub-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    margin-top: 1.5rem;
+}
 
 .pub {
+    position: relative;
     border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 1rem 1.2rem;
+    border-radius: 12px;
+    padding: 1.1rem 1.3rem;
     background: var(--entry);
+    box-shadow: var(--pub-shadow);
+    transition: transform 0.2s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 }
+.pub:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--pub-shadow-hover);
+    border-color: var(--accent);
+}
+.pub::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 12%; bottom: 12%;
+    width: 3px;
+    background: var(--accent);
+    border-radius: 0 3px 3px 0;
+    opacity: 0;
+    transition: opacity 0.25s ease;
+}
+.pub:hover::before { opacity: 1; }
 
 .pub-title {
     font-weight: 600;
-    font-size: 1.05rem;
-    line-height: 1.35;
-    margin-bottom: 0.35rem;
+    font-size: 1.08rem;
+    line-height: 1.4;
+    margin-bottom: 0.4rem;
 }
 
 .pub-authors { font-size: 0.95rem; color: var(--content); margin-bottom: 0.2rem; }
-.pub-venue   { font-size: 0.9rem;  color: var(--secondary); font-style: italic; margin-bottom: 0.5rem; }
+.pub-venue   { font-size: 0.9rem;  color: var(--secondary); font-style: italic; margin-bottom: 0.6rem; }
 
-.pub-links { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.6rem; }
+.pub-links { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-bottom: 0.65rem; }
 .pub-links a {
-    font-size: 0.85rem;
-    padding: 2px 10px;
+    font-size: 0.82rem;
+    padding: 3px 12px;
     border: 1px solid var(--border);
     border-radius: 999px;
     text-decoration: none;
     color: var(--primary);
+    background: transparent;
+    transition: background 0.18s ease, border-color 0.18s ease, color 0.18s ease;
 }
-.pub-links a:hover { background: var(--tertiary); }
+.pub-links a:hover {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+}
 
-.pub-abstract { font-size: 0.92rem; color: var(--content); line-height: 1.5; }
+.pub-abstract { font-size: 0.93rem; color: var(--content); line-height: 1.55; }
 
-/* ---------- News timeline ---------- */
+/* =========================================================
+   News timeline
+   ========================================================= */
 .news-list {
     display: grid;
-    grid-template-columns: 110px 1fr;
-    column-gap: 1.2rem;
-    row-gap: 1rem;
+    grid-template-columns: 120px 1fr;
+    column-gap: 1.4rem;
+    row-gap: 1.1rem;
     margin-top: 1.5rem;
+    position: relative;
 }
 
 .news-item { display: contents; }
 
 .news-date {
     font-variant-numeric: tabular-nums;
-    color: var(--secondary);
-    font-size: 0.95rem;
+    color: var(--accent);
+    font-size: 0.9rem;
+    font-weight: 600;
     padding-top: 2px;
+    white-space: nowrap;
+    letter-spacing: 0.02em;
+}
+
+.news-body {
+    font-size: 0.98rem;
+    line-height: 1.6;
+    color: var(--content);
+    border-left: 2px solid var(--border);
+    padding-left: 1rem;
+    transition: border-color 0.2s ease;
+}
+.news-body:hover { border-left-color: var(--accent); }
+
+/* Category tag pill in front of each news entry */
+.news-tag {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    margin-right: 0.55rem;
+    border-radius: 999px;
+    background: var(--accent-soft);
+    color: var(--accent);
+    vertical-align: 2px;
     white-space: nowrap;
 }
 
-.news-body { font-size: 0.98rem; line-height: 1.55; color: var(--content); }
-
 @media (max-width: 600px) {
     .news-list { grid-template-columns: 1fr; row-gap: 0.6rem; }
-    .news-date { font-weight: 600; padding-top: 0; }
+    .news-date { font-weight: 700; padding-top: 0; }
     .news-item + .news-item .news-date { margin-top: 0.6rem; }
+    .news-body { border-left: none; padding-left: 0; }
 }
+
+/* =========================================================
+   Blog post list (Blog index)
+   ========================================================= */
+.post-entry {
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    transition: transform 0.2s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+.post-entry:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--pub-shadow-hover);
+    border-color: var(--accent);
+}
+
+/* Tag pills */
+.post-tags a, .terms-tags a {
+    background: var(--accent-soft);
+    color: var(--accent) !important;
+    border: 1px solid transparent;
+    transition: background 0.18s ease, color 0.18s ease;
+}
+.post-tags a:hover, .terms-tags a:hover {
+    background: var(--accent);
+    color: #fff !important;
+}
+
+/* Inline code + code block tweaks */
+.post-content code:not(pre code) {
+    background: var(--accent-soft);
+    color: var(--accent);
+    padding: 1px 6px;
+    border-radius: 4px;
+    font-size: 0.92em;
+}
+
+/* =========================================================
+   Blog tabs (Blog index page)
+   ========================================================= */
+.blog-tabs {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.blog-tab {
+    display: block;
+    padding: 1.1rem 1.3rem;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: var(--entry);
+    text-decoration: none !important;
+    color: inherit;
+    box-shadow: var(--pub-shadow);
+    transition: transform 0.2s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+.blog-tab:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--pub-shadow-hover);
+    border-color: var(--accent);
+}
+
+.blog-tab-title {
+    font-weight: 600;
+    font-size: 1.05rem;
+    color: var(--accent);
+    margin-bottom: 0.35rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+.blog-tab-ext { font-size: 0.85rem; opacity: 0.7; }
+.blog-tab-desc { font-size: 0.93rem; color: var(--content); line-height: 1.5; }
+
+/* Header nav: accent on hover/active */
+#menu a { transition: color 0.18s ease; }
+#menu a:hover { color: var(--accent); }
+#menu .active { color: var(--accent); }
