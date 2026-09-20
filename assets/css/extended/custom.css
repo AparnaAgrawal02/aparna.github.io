@@ -316,6 +316,42 @@ h1, h2, h3 { letter-spacing: -0.01em; }
 .blog-tab-ext { font-size: 0.85rem; opacity: 0.7; }
 .blog-tab-desc { font-size: 0.93rem; color: var(--content); line-height: 1.5; }
 
+/* =========================================================
+   Snitch pond (About page easter egg)
+   ========================================================= */
+.snitch-pond {
+    position: relative;
+    width: 100%;
+    height: 260px;
+    margin-top: 1.5rem;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: radial-gradient(ellipse at 50% 38%, #fdf6e3 0%, #f4ebd2 55%, #e9dcb8 100%);
+    box-shadow: var(--pub-shadow), inset 0 2px 18px rgba(120, 90, 30, 0.16);
+    overflow: hidden;
+    touch-action: none;
+}
+
+[data-theme="dark"] .snitch-pond {
+    background: radial-gradient(ellipse at 50% 38%, #1c2044 0%, #12152c 55%, #090b1c 100%);
+    box-shadow: var(--pub-shadow), inset 0 2px 22px rgba(0, 0, 0, 0.55);
+}
+
+.snitch-pond canvas {
+    display: block;
+}
+
+.snitch-pond-caption {
+    margin-top: 0.6rem;
+    font-size: 0.85rem;
+    color: var(--secondary);
+    text-align: center;
+}
+
+@media (max-width: 600px) {
+    .snitch-pond { height: 200px; }
+}
+
 /* Header nav: accent on hover/active */
 #menu a { transition: color 0.18s ease; }
 #menu a:hover { color: var(--accent); }

@@ -34,6 +34,10 @@ Broader interests:
 - **M.S. by Research, CSE**, IIIT Hyderabad (CVIT)
 - **B.Tech, CSE**, IIIT Hyderabad
 
+## Catch the Snitch
+
+{{< snitches >}}
+
 ## Get in touch
 
 The fastest ways to reach me are linked in the footer: email, GitHub, and
