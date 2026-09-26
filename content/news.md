@@ -25,7 +25,8 @@ hidemeta: true
     <span class="news-tag">Paper</span>
     Paper at <strong>ICVGIP 2025</strong> —
     <em>Towards Scalable Sign Production: Leveraging Co-Articulated Gloss
-    Dictionary for Fluid Sign Synthesis</em>.
+    Dictionary for Fluid Sign Synthesis</em>
+    (<a href="https://aparnaagrawal02.github.io/Towards-Scalable-Sign-Production-Leveraging-Co-Articulated-Gloss-Dictionary-for-Fluid-Sign-Synthesis/">project page</a>).
   </div>
 </div>
 

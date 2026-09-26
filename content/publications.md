@@ -91,6 +91,7 @@ hidemeta: true
     <!-- TODO: add real links when available -->
     <a href="#">PDF</a>
     <a href="#">Code</a>
+    <a href="https://aparnaagrawal02.github.io/Towards-Scalable-Sign-Production-Leveraging-Co-Articulated-Gloss-Dictionary-for-Fluid-Sign-Synthesis/">Project page</a>
   </div>
   <div class="pub-abstract">
     An interpolation-based ISL sign-production framework that leverages a
